@@ -19,15 +19,15 @@ function renderBooks() {
            <td>${book.title}</td>
            <td>${book.price}$</td>
            <td>
-               <button onClick="onReadBook('${book.id}')"class="action-read">Read</button>
-               <button onClick="onUpdateBook('${book.id}')"class="action-update">Update</button>
-               <button onClick="onDeleteBook('${book.id}')"class="action-delete">Delete</button>
+               <button onClick="onReadBook('${book.id}')"class="action-read" data-trans="read-btn">Read</button>
+               <button onClick="onUpdateBook('${book.id}')"class="action-update" data-trans="update-btn">Update</button>
+               <button onClick="onDeleteBook('${book.id}')"class="action-delete" data-trans="delete-btn">Delete</button>
            </td>
        </tr>
 
 `
     )
-    
+
     document.querySelector('tbody').innerHTML = strHTML.join('')
 }
 
@@ -113,5 +113,15 @@ function renderFilterByQueryStringParams() {
 
 function onNextPage() {
     nextPage()
+    renderBooks()
+}
+
+function onSetLang(lang) {
+    setLang(lang)
+
+    if(lang === 'he')document.body.classList.add('rtl') //todo
+    else document.body.classList.remove('rtl')
+    
+    doTrans() ///todo
     renderBooks()
 }

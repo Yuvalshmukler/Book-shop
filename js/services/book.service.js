@@ -16,7 +16,7 @@ var gFilterBy = {
 _createBooks()
 
 
-function restartGame(){
+function restartGame() {
     gFilterBy = {
         maxPrice: 0,
         minRate: 0,
@@ -43,7 +43,7 @@ function getBooksForDisplay() {
     if (gFilterBy.txt) {
         books = books.filter(book => book.title.includes(gFilterBy.txt))
     }
-    if (gFilterBy.minRate) { 
+    if (gFilterBy.minRate) {
         books = books.filter(book => book.rate >= +gFilterBy.minRate)
         console.log(books);
 
@@ -55,21 +55,13 @@ function getBooksForDisplay() {
     return books
 }
 
-/* function setFilterByMax(filterby) {
-    gFilterBy.maxPrice = filterby
-    console.log(filterby)
+function onSetLang() {
 
 }
-function getFilterByRate(minRate) {
-    console.log(minRate)
-    gFilterBy.minRate = minRate
-}
- */
-
 function setFilterBy(filterBy) {
-    if(filterBy.maxPrice) gFilterBy.maxPrice = +filterBy.maxPrice
-    if(filterBy.minRate) gFilterBy.minRate = +filterBy.minRate
-    if(filterBy.txt) gFilterBy.txt = filterBy.txt
+    if (filterBy.maxPrice) gFilterBy.maxPrice = +filterBy.maxPrice
+    if (filterBy.minRate) gFilterBy.minRate = +filterBy.minRate
+    if (filterBy.txt) gFilterBy.txt = filterBy.txt
     return gFilterBy
 }
 function _createBook(title = makeLorem(4)) {
