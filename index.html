@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book-shop</title>
     <link rel="stylesheet" href="css/style.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
 
 <body onload="onInit()">
@@ -15,13 +18,15 @@
         <option value="he">עברית</option>
     </select>
 
-    <table>
-        <h1 data-trans="title">Welcome to my bookshop</h1>
-        <input type="text" name="filter-txt" data-trans="filter-by-txt" oninput="onSetFilterBy({txt:this.value})" placeholder="Start typing..." />
 
-        <section class="book-container">
+    <h1 data-trans="title" class="fw-bold mt-4 mb-4">Welcome to my bookshop</h1>
+    <div class="container m-auto text-center">
+        <input class="fst-italic txt-filter" type="text" name="filter-txt" data-trans="filter-by-txt"
+            oninput="onSetFilterBy({txt:this.value})" placeholder="Start typing..." />
 
-            <select class="filter-by" onchange="onSetFilterBy({maxPrice:this.value})">
+        <section class="book-container mt-4">
+
+            <select class="filter-by border-top" onchange="onSetFilterBy({maxPrice:this.value})">
                 <option value="0" data-trans="filter-by-price">Max Price</option>
                 <option value="5">5$</option>
                 <option value="10">10$</option>
@@ -29,7 +34,7 @@
                 <option value="20">20$</option>
                 <option value="30">30$</option>
             </select>
-            <select class="filter-by" onchange="onSetFilterBy({minRate:this.value})">
+            <select class="filter-by border-top" onchange="onSetFilterBy({minRate:this.value})">
                 <option value="0" data-trans="filter-by-rate">Min Rate</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -43,36 +48,56 @@
                 <option value="10">10</option>
             </select>
 
-            <h4 onclick="onAddBook()" class="create-new-book" data-trans="create-new-book">Create new book</h4>
-            <thead>
+            <select class="sort-by border-top" onchange="onShortBy()">
+                <option value="" data-trans="sort-by">Sort by</option>
+                <option value="price" data-trans="sort-by-price">price</option>
+                <option value="title" data-trans="sort-by-title">title</option>
+            </select>
+            <div><button class="btn btn-secondary float-end" onclick="onNextPage()" data-trans="next-page">Next
+                    Page</button></div>
 
-                <th class="th-id" data-trans="book-id">Id</th>
-                <th data-trans="book-title">Title</th>
-                <th data-trans="book-price">Price</th>
-                <th colspan="3">Actions</th>
-
+    </div>
+    <div class="container mt-4">
+        <table class="table table-success table-striped mt-6">
+            <th class="th-id" data-trans="book-id">Id</th>
+            <th data-trans="book-title">Title</th>
+            <th data-trans="book-price">Price</th>
+            <th colspan="3" data-trans="book-actions">Actions</th>
             </thead>
-            <tbody></tbody>
-    </table>
-    <button class="nextPage" onclick="onNextPage()" data-trans="next-page">Next Page</button>
+            <tbody class="tbody"></tbody>
+        </table>
+
+        <div class="add-book-container m-auto text-center">
+            <section class="select add-book mt-3 ">
+                <input class="fst-italic addBookInf" type="text" id="newBook" data-trans="add-book"
+                    placeholder="Name of the book" />
+                <input class="fst-italic addBookInf" type="text" id="newPrice" data-trans="add-price"
+                    placeholder="Enter a price" />
+                <button type="submit" class="addBook addBookInf " data-trans="create-book" onclick="onAddBook()">Add
+                    book</button>
+            </section>
+        </div>
+    </div>
 
     </section>
 
-    <div class="modal">
+    <div class="modal-reading">
         <h3></h3>
         <h4><span></span></h4>
         <p></p>
-        <button data-trans="close-modal" onclick="onCloseModal()">close</button>
+        <button data-trans="close-modal btn" onclick="onCloseModal()">close</button>
+        <br>
 
-        <div class="rate-book">
-            <button onclick="onRange(-1)" class="btn1">-</button>
-            <button class="onRange">0</button>
-            <button onclick="onRange(1)" class="btn2">+</button>
-        </div>
+        <button class="border-0  onclick="onRange(-1)" class="btn1">-</button>
+        <button class="onRange border-0 ">0</button>
+        <button class="border-0 " onclick="onRange(1)" class="btn2">+</button>
 
     </div>
 
-
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
     <script src="js/services/util.service.js"></script>
     <script src="js/services/i18n.service.js"></script>
     <script src="js/services/storage.service.js"></script>

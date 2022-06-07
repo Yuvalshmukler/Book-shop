@@ -18,7 +18,7 @@ var gTrans = {
     },
     'create-new-book': {
         en: 'Create new book',
-        he: 'ליצור ספר חדש'
+        he: 'צור ספר חדש'
     },
     'book-id': {
         en: 'Id',
@@ -50,18 +50,46 @@ var gTrans = {
     },
     'delete-btn': {
         en: 'Delete',
-        he: 'למחוק'
+        he: 'מחיקה'
+    },
+    'book-actions': {
+        en: 'Actions',
+        he: 'פעולות'
+    },
+    'add-book': {
+        en: 'Name of the book',
+        he: 'הוסף כותרת לספר'
+    },
+    'add-price': {
+        en: 'Enter a price',
+        he: 'הוסף מחיר לספר'
+    },
+    'create-book': {
+        en: 'Add book',
+        he: 'צור ספר'
+    },
+    'sort-by': {
+        en: 'Sort by',
+        he: 'מיין לפי'
+    },
+    'sort-by-price': {
+        en: 'price',
+        he: 'מחיר'
+    },
+    'sort-by-title': {
+        en: 'title',
+        he: 'כותרת'
     }
-
 }
 
 var gCurrLang = 'en'
-function getTrans(transKey){
+
+function getTrans(transKey) {
     var keyTrans = gTrans[transKey]
-    if(!transKey) return 'UNKNOWN'
+    if (!transKey) return 'UNKNOWN'
 
     var txt = keyTrans[gCurrLang]
-    if(!txt) txt = keyTrans.en
+    if (!txt) txt = keyTrans.en
 
     return txt
 }
@@ -70,9 +98,12 @@ function doTrans() {
     var els = document.querySelectorAll('[data-trans]')
     els.forEach(el => {
         var transKey = el.dataset.trans
-        console.log(el.dataset);
-        
+        //console.log(el.dataset);
+
         var txt = getTrans(transKey)
+        if (el.localName === 'input') {
+            el.setAttribute("placeholder", txt)
+        } else el.innerText = txt
     })
 }
 

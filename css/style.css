@@ -1,21 +1,47 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
+
 body {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Comfortaa', cursive;  
   text-align: center;
   background-image: url(/polymesh10-08-01.jpg);
   background-size: 100%;
 }
+
+body.rtl {
+  direction: rtl;
+}
+
+body.rtl .btn-delete {
+  float: left;
+}
+
+.addBookInf  {
+  border-radius: 4px;
+  height: 2em;
+  text-align: center;
+  cursor: pointer;
+
+}
+.txt-filter{
+  border-radius: 4px;
+  height: 2em;
+  text-align: center;
+  cursor: pointer;
+
+}
+
 .th-id {
   width: 10em;
 }
-h1{
-  margin-top: 2.5em;
-  color: rgb(6, 6, 6);
+
+h1 {
+  text-align: center;
+  color: rgb(29, 28, 28);
   font-family: 'Raleway', sans-serif
-  
-  
 }
+
 select {
+
   border: none;
   width: 7em;
   height: 1.7rem;
@@ -24,12 +50,15 @@ select {
 
 }
 
+.addBook:hover {
+  background-color: rgb(127, 143, 126);
+}
+
 .nextPage {
   border: none;
   width: 7em;
   height: 1.7rem;
   border-radius: 4px;
-  background-color: rgb(254, 254, 254);
   margin-top: 3em;
 }
 
@@ -43,64 +72,48 @@ td {
   text-align: center;
   text-align: center;
   margin: auto;
-
-}
-
-table,
-th{
-  background-color: rgb(150, 179, 204);
-  height: 3em;
-}
-
-tr:nth-child(odd) {
-  background-color: rgb(226, 225, 225);
-
-}
-
-button {
-  border: none;
-  width: 4em;
-  height: 1.7rem;
-  
 }
 
 .action-read {
-  background-color: rgb(184, 181, 181);
+  text-align: center;
 }
 
 .action-update {
-  background-color: rgb(182, 212, 182);
+  text-align: center;
 }
 
 .action-delete {
-  background-color: rgb(241, 182, 182);
+  text-align: center;
 }
 
-.modal {
-  background-color: rgb(160, 142, 142);
-  padding: 10px;
+.add-book {
+  margin: auto;
+}
+
+.modal-reading {
+  background-color: rgb(206, 197, 197);
+  padding: 0.5em;
   position: absolute;
   top: 0px;
-  left: 150%;
-  height: 90vh;
-  min-width: 280px;
+  left: 170%;
+  height: 100vh;
   display: none;
   text-align: center;
 }
 
-.modal.open {
+.modal-reading.open {
   left: 80%;
   transition: left .5s;
   display: block;
 }
 
+.filter-by {
+  margin: auto;
+}
+
+.book-container {
+  margin: auto;
+}
 
 
-.rate-book {
-  margin-top: 3em;
-  border-radius: 0px;
-}
-.create-new-book{
-  color: rgb(98, 108, 125);
-  cursor: pointer;
-}
+
