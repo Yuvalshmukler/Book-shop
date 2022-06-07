@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+body {
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  background-image: url(/polymesh10-08-01.jpg);
+  background-size: 100%;
+}
+.th-id {
+  width: 10em;
+}
+h1{
+  margin-top: 2.5em;
+  color: rgb(6, 6, 6);
+  font-family: 'Raleway', sans-serif
+  
+  
+}
+select {
+  border: none;
+  width: 7em;
+  height: 1.7rem;
+  border-radius: 4px;
+  cursor: pointer;
+
+}
+
+.nextPage {
+  border: none;
+  width: 7em;
+  height: 1.7rem;
+  border-radius: 4px;
+  background-color: rgb(254, 254, 254);
+  margin-top: 3em;
+}
+
+table,
+td {
+  border-collapse: collapse;
+  width: 45em;
+  height: 2em;
+  font-family: sans-serif;
+  font-size: 0.9em;
+  text-align: center;
+  text-align: center;
+  margin: auto;
+
+}
+
+table,
+th{
+  background-color: rgb(150, 179, 204);
+  height: 3em;
+}
+
+tr:nth-child(odd) {
+  background-color: rgb(226, 225, 225);
+
+}
+
+button {
+  border: none;
+  width: 4em;
+  height: 1.7rem;
+  
+}
+
+.action-read {
+  background-color: rgb(184, 181, 181);
+}
+
+.action-update {
+  background-color: rgb(182, 212, 182);
+}
+
+.action-delete {
+  background-color: rgb(241, 182, 182);
+}
+
+.modal {
+  background-color: rgb(160, 142, 142);
+  padding: 10px;
+  position: absolute;
+  top: 0px;
+  left: 150%;
+  height: 90vh;
+  min-width: 280px;
+  display: none;
+  text-align: center;
+}
+
+.modal.open {
+  left: 80%;
+  transition: left .5s;
+  display: block;
+}
+
+
+
+.rate-book {
+  margin-top: 3em;
+  border-radius: 0px;
+}
+.create-new-book{
+  color: rgb(98, 108, 125);
+  cursor: pointer;
+}
